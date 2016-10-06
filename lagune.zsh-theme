@@ -1,14 +1,14 @@
 # Lagune ZSH Theme
-# based on oh-my-zsh theme 
+# based on oh-my-zsh theme
 #
 
 ### Virtualenv
-ZSH_THEME_VIRTUALENV_PREFIX="⛵ %{$fg[yellow]%}"
+ZSH_THEME_VIRTUALENV_PREFIX="%{$fg_bold[white]%} %{$fg_bold[yellow]%}"
 ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}"
 
 ### Git [±master ▾●]
 
-ZSH_THEME_GIT_PROMPT_PREFIX="🐙 %{$fg_bold[white]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[white]%} "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✓%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[cyan]%}▴%{$reset_color%}"
@@ -79,16 +79,16 @@ lagune_git_prompt () {
 }
 
 
-_PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
+_PATH="%{$fg_bold[blue]%}  %~%{$reset_color%}"
 
 if [[ $EUID -eq 0 ]]; then
   _USERNAME="%{$fg_bold[red]%}%n"
   _LIBERTY="%{$fg[red]%}☢ "
 else
-  _USERNAME="%{$fg_bold[white]%}%n"
-  _LIBERTY="%{$fg[blue]%}◤ "
+  _USERNAME="%{$fg_bold[yellow]%}%n"
+  _LIBERTY="%{$fg_bold[white]%}  "
 fi
-_USERNAME="$_USERNAME%{$reset_color%}@%{$fg_bold[blue]%}%m%{$fg_bold[blue]%}"
+_USERNAME="$_USERNAME%{$reset_color%}%{$fg_bold[white]%}@%{$fg_bold[red]%}%m%{$fg_bold[blue]%}"
 _LIBERTY="$_LIBERTY%{$reset_color%}"
 
 
@@ -109,7 +109,7 @@ get_space () {
 }
 
 _1LEFT="$_USERNAME $_PATH"
-_1RIGHT="[%*] "
+_1RIGHT="%{$fg_bold[green]%}[%*] "
 
 lagune_precmd () {
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
